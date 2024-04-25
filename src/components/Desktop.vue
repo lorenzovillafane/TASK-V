@@ -1,29 +1,37 @@
 <template>
+  <header>
+    <div class="title"><h1>Task-V </h1></div>
+    <div class="add-list">
+      <input type="text" v-model="newListTitle" @keyup.enter="addList" placeholder="Add new list">
+      <button @click="addList" class="add-button"id="addList">Add List</button>
+   
+    <button @click="deleteAllLists" id="buttondeleteallLists">Delete All Lists</button> </div>
+  </header>
+  <body>
+    
+ 
   <div class="desktop">
     <div class="lists-container">
       <div v-for="(list, listIndex) in lists" :key="listIndex" class="list" ref="lists" @drop="dropList(listIndex)" @dragover.prevent>
         <div class="list-header">
           <h2>{{ list.title }}</h2>
-          <button @click="deleteList(listIndex)">Delete List</button>
+          <button @click="deleteList(listIndex)" id="buttondeleteList">Delete List</button>
         </div>
         <div class="cards-container" ref="cards">
           <div v-for="(card, cardIndex) in list.cards" :key="cardIndex" class="card" draggable="true" @dragstart="drag(card, listIndex, cardIndex)">
             <div class="card-content">
               <span>{{ card.text }}</span>
-              <button @click="deleteCard(listIndex, cardIndex)">Delete</button>
+              <button @click="deleteCard(listIndex, cardIndex)" id="buttondeleteCard">Delete</button>
             </div>
           </div>
         </div>
         <div class="add-card">
-          <input type="text" v-model="newCardText[listIndex]" @keyup.enter="addCard(listIndex)" placeholder="Enter task">
+          <input type="text" v-model="newCardText[listIndex]" @keyup.enter="addCard(listIndex)" placeholder="Enter task" maxlength="15">
+          <button @click="addCard(listIndex)" class="add-button" id="addTask">Add Task</button>
         </div>
       </div>
     </div>
-    <div class="add-list">
-      <input type="text" v-model="newListTitle" @keyup.enter="addList" placeholder="Add new list">
-    </div>
-    <button @click="deleteAllLists">Delete All Lists</button>
-  </div>
+  </div> </body>
 </template>
 
 <script>
@@ -31,16 +39,26 @@ export default {
   name: 'Desktop',
   data() {
     return {
-      lists: [
+      // Obtener las listas guardadas en localStorage, si las hay, de lo contrario, usar las listas predeterminadas
+      lists: JSON.parse(localStorage.getItem('taskLists')) || [
         { id: 1, title: 'To Do', cards: [{ id: 1, text: 'Task 1' }, { id: 2, text: 'Task 2' }] },
-        { id: 2, title: 'In Progress', cards: [{ id: 3, text: 'Task 3' }] },
-        { id: 3, title: 'Done', cards: [{ id: 4, text: 'Task 4' }] }
+        { id: 2, title: 'In Progress', cards: [{ id: 3, text: 'Task 3' },{ id: 4, text: 'Task 4' }] },
+        { id: 3, title: 'Done', cards: [{ id: 5, text: 'Task 5' },{ id: 6, text: 'Task 6' }] }
       ],
       newListTitle: '',
       newCardText: [],
-      cardIdCounter: 5,
+      cardIdCounter: 6,
       dropHandled: false
     };
+  },
+  watch: {
+    // Observar cambios en la lista y guardarla en localStorage
+    lists: {
+      handler(newLists) {
+        localStorage.setItem('taskLists', JSON.stringify(newLists));
+      },
+      deep: true
+    }
   },
   methods: {
     addList() {
@@ -96,49 +114,10 @@ export default {
   }
 };
 </script>
-
-<style>
-.desktop {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-
-.lists-container {
-  display: flex;
-}
-
-.list {
-  background-color: #050505;
-  border-radius: 5px;
-  margin-right: 20px;
-  padding: 10px;
-}
-
-.cards-container {
-  margin-top: 10px;
-}
-
-.card {
-  background-color: #992525;
-  border-radius: 8px;
-  margin-bottom: 5px;
-  padding: 5px;
-}
-
-.add-card input {
-  width: 100%;
-  padding: 5px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-.add-list input {
-  width: 200px;
-  padding: 5px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
+<style scoped lang="scss">
+@import url("../styles/desktopStyle.scss");
 </style>
+
+
+
+

@@ -1,0 +1,291 @@
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+$paper-color: #F1EDE9;
+$paper-line: #94ACD4;
+
+
+
+
+*{ font-family: "Indie Flower", cursive;
+  
+  letter-spacing: 0.1rem;
+font-weight: 400;
+}
+h1{font-size: 75px;
+font-weight: 700;
+
+
+}
+
+ 
+body {
+  margin: 0px;
+  padding: 0;
+  display: flex;
+  align-content:flex-start;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+.desktop {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  margin-top: 20px;
+
+}
+
+.lists-container {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+.list-header{color: black;
+display: flex;
+justify-content: center;
+align-items:end;
+margin-bottom: 10px;
+
+}
+h2{  font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    border-bottom: 2px solid #111;}
+#buttondeleteCard{background-color: transparent;
+    color:#E08183;
+    padding: 0px;
+    margin: 8px;
+    height: 40px;
+    font-size: 20px;
+  border:none;}
+#buttondeleteList{background-color: transparent;
+color: #E08183;
+padding: 2px;
+margin: 5px;
+height: 40px;
+font-size: 20px;
+ border:none;}
+
+#buttondeleteallLists {
+margin-left: 50px;
+border:none;
+font-size: 25px;
+padding: 0px;
+border-radius: 0;
+background-color:transparent; 
+font-weight: 700;
+color: rgb(0, 0, 0);
+border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+header {display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: baseline;
+text-align: center;
+align-items: center;
+
+}
+
+
+
+.list {
+    background: repeating-linear-gradient($paper-color, $paper-color 31px, $paper-line 31px, $paper-line 32px);
+  border-radius: 5px;
+  padding: 10px;
+  line-height: 32px;
+  outline: 0;
+  width: 350px;
+  margin:20px;
+ 
+
+
+  
+}
+
+.cards-container {
+  margin-top: 10px;
+}
+
+
+.card {
+  background-color: transparent;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  padding: 0px;
+  line-height: 33px;
+  outline: 0;
+  font-size: 28px;
+  color: black;
+}
+
+.add-card input {
+  position:relative;
+  top: 0px;
+  width: 50%;
+  padding: 2px;
+  margin-top: 5px;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  background-color: transparent;
+  align-items: end;
+  align-content: end;
+  text-align: center;
+  color: black;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+#addList{margin-left: 50px;
+  border:none;
+  font-size: 25px;
+  font-weight: 700;
+  padding: 0px;
+  border-radius: 0;
+  background-color:transparent;
+  color: rgb(0, 0, 0);
+  border-bottom: 2px solid rgb(0, 0, 0); }
+#addTask {background-color: transparent;
+color: rgb(44, 146, 44);
+font-size: 20px;
+padding: 2px;
+margin: 5px;
+border:none;}
+.add-list input {
+  width: 400px;
+  height: 50px;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 3px;
+  font-size: 20px;
+}
+.card-content{display: flex;
+flex-wrap: wrap;
+margin: 8px;
+justify-content: center;
+align-items: center;}
+@media (max-width: 1300px){
+  .lists-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+  }
+ 
+}
+@media (max-width: 500px){
+  h1{font-size: 65px;
+    }
+ 
+    .desktop {
+      margin-top: 10px;
+    
+    }
+    
+    .lists-container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 300px;
+      
+    }
+   
+    h2{  font-size: 30px;}
+
+
+    
+    header {display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: baseline;
+    text-align: center;
+    align-items: center;
+    
+    }
+    .list {
+        background: repeating-linear-gradient($paper-color, $paper-color 31px, $paper-line 31px, $paper-line 32px);
+      border-radius: 5px;
+      padding: 10px;
+      line-height: 32px;
+      outline: 0;
+      width: 350px;
+      margin:20px;
+      
+    }
+    
+    .cards-container {
+      margin-top: 10px;
+    }
+    
+    
+    .card {
+      background-color: transparent;
+      border-radius: 8px;
+      margin-bottom: 5px;
+      padding: 0px;
+      line-height: 33px;
+      outline: 0;
+      font-size: 28px;
+      color: black;
+    }
+    
+    .add-card input {
+      position:relative;
+      top: 0px;
+      width: 50%;
+      padding: 2px;
+      margin-top: 5px;
+      border: 1px solid #000000;
+      border-radius: 3px;
+      background-color: transparent;
+      align-items: end;
+      align-content: end;
+      text-align: center;
+      color: black;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    
+  
+    #addTask {background-color: transparent;
+    color: rgb(44, 146, 44);
+    font-size: 20px;
+    padding: 2px;
+    margin: 5px;
+    border:none;}
+    .add-list input {
+      width: 200px;
+      height: 50px;
+      padding: 5px;
+      margin-bottom: 10px;
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 3px;
+      font-size: 20px;
+    }
+    .card-content {
+   
+      display:flex;
+   flex-direction: row;
+flex-wrap: nowrap;
+width: 300px;
+height: auto;
+
+
+    }
+
+}
+@media (max-width: 450px){
+  *{margin: 0;
+  padding: 0px;}
+
+  
+  .card-content {
+width: 200px;
+  }
+  h2{font-size: 24px;}
+  span{font-size: 24px;
+align-content: center;}
+.add-card input{font-size: 20px;
+}
+
+}
